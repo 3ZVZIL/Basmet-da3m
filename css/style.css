@@ -72,7 +72,7 @@ body {
   list-style: none;
   gap: 2rem;
   align-items: center;
-
+  
 }
 
 .nav-links a {
@@ -91,19 +91,20 @@ body {
 
 .btn-login {
   background: white;
+  place-content: center;
   color: var(--primary) !important;
-  padding: 10px 24px;
+  padding: 10px 10px 10px 10px ;
   border-radius: 50px;
   font-weight: 600;
   align-items: center;
   display: flex;
-  gap: 8px;
+  gap: 1rem;
   border: 2px solid var(--primary);
   margin-bottom: 5px;
   margin-top: 5px;
   text-decoration: none;
   text-align-last: center;
-
+  
 }
 
 .btn-login:hover {
@@ -197,7 +198,7 @@ body {
    Hero Section
    ============================================== */
 .hero {
-  min-height: 90vh;
+  min-height: 30vh;
   background: linear-gradient(rgba(0, 102, 204, 0.82), rgba(0, 68, 136, 0.78)),
               url('https://images.unsplash.com/photo-1522202176988-66273c2b033f?auto=format&fit=crop&q=80') center/cover;
   color: white;
@@ -206,7 +207,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 20px 20px;
 }
 
 .hero-content h1 {
@@ -229,6 +230,9 @@ body {
    Custom Cards
    ============================================== */
 .custom-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
   background: white;
   border-radius: 20px;
   overflow: hidden;
@@ -249,6 +253,7 @@ body {
   transition: var(--transition);
   text-align: center;
   border-top: 8px solid var(--accent);
+  border-top-style: flex;
 }
 
 .card-header h2, .card-header h3 {
@@ -340,7 +345,7 @@ body {
   justify-content: center;
   font-weight: bold;
 }
-
+  
 /* ==============================================
    Fade-in Animation
    ============================================== */
@@ -456,6 +461,28 @@ body {
   opacity: 0.8;
 }
 
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  text-align: center;
+}
+
+.stat-item .number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #004ee0;
+  margin-bottom: 0.8rem;
+}
+
+.count {
+  font-size: 2rem;
+  font-weight: 400;
+  font-style: bold;
+  color: var(--accent);
+  margin: .8rem;
+}
+
 /* ==============================================
    Extra Responsive Tweaks (اختياري - للشاشات المتوسطة)
    ============================================== */
@@ -479,7 +506,7 @@ body {
   .btn-login {
     font-size: 1.05rem;
     padding: 0px;
-
+    
     /* شوية توسيع للزر عشان يبقى متوازن */
   }
 
@@ -502,4 +529,43 @@ body {
   .logo {
     font-size: 1.9rem;
   }
+}
+
+/* Back to Top Button */
+#back-to-top {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 55px;
+  height: 55px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.3);
+  transition: all 0.3s ease;
+  z-index: 9999;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+#back-to-top.visible {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+#back-to-top:hover {
+  background: var(--primary-dark);
+  transform: scale(1.1) translateY(-5px);
+}
+
+
+.value-item {
+  color: var(--accent);
+  size: 1rem;
 }
