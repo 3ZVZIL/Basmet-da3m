@@ -85,5 +85,34 @@ if (backToTop) {
   });
 }
 
+
+// عداد الانجازات
+  const counters = document.querySelectorAll('.number[data-count]');
+  const options = { threshold: 0.3 };
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        counters.forEach(counter => {
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-count');
+            const count = +counter.innerText.replace('+', '');
+            const increment = target / 150;
+            if (count < target) {
+              counter.innerText = Math.ceil(count + increment) + '+';
+              setTimeout(updateCount, 20);
+            } else {
+              counter.innerText = target + '+';
+            }
+          };
+          updateCount();
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  const statsSection = document.querySelector('#stats');
+  if (statsSection) observer.observe(statsSection);
+  
   console.log('موقع مبارده بصمه دعم من برمحه محمد عبدالتواب');
 });
