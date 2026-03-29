@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تسجيل الدخول | بصمة دعم</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">بصمة دعم</a>
+    </div>
+  </nav>
+
+  <div class="auth-page">
+    <div class="auth-container">
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="tab-btn active" data-tab="login">تسجيل الدخول</button>
+        <button class="tab-btn" data-tab="register">تسجيل جديد</button>
+      </div>
+
+      <!-- Login Form -->
+      <div id="login" class="auth-form active">
+        <h2>تسجيل الدخول</h2>
+        <form>
+          <div class="form-group">
+            <label>البريد الإلكتروني</label>
+            <div class="input-with-icon">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="example@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>كلمة المرور</label>
+            <div class="input-with-icon">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="login-password" placeholder="••••••••" required>
+              <i class="fas fa-eye toggle-password" onclick="togglePassword('login-password')"></i>
+            </div>
+          </div>
+          <button type="submit" class="submit-btn">دخول</button>
+        </form>
+
+        <div class="or-divider"><span>أو</span></div>
+        <button class="google-btn"><i class="fab fa-google"></i> تسجيل الدخول بجوجل</button>
+      </div>
+
+      <!-- Register Form -->
+      <div id="register" class="auth-form">
+        <h2>تسجيل حساب جديد</h2>
+        <form>
+          <div class="form-group">
+            <label>الاسم الكامل</label>
+            <div class="input-with-icon">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="أدخل اسمك الكامل" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>البريد الإلكتروني</label>
+            <div class="input-with-icon">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="example@email.com" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>السن</label>
+              <div class="input-with-icon">
+                <i class="fas fa-calendar"></i>
+                <input type="number" placeholder="عمرك" min="16" max="60" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>رقم الهاتف</label>
+              <div class="input-with-icon">
+                <i class="fas fa-phone"></i>
+                <input type="tel" placeholder="01xxxxxxxxx" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>رقم هاتف آخر (اختياري)</label>
+            <div class="input-with-icon">
+              <i class="fas fa-phone"></i>
+              <input type="tel" placeholder="01xxxxxxxxx">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>كلمة المرور</label>
+            <div class="input-with-icon">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="reg-password" placeholder="••••••••" required>
+              <i class="fas fa-eye toggle-password" onclick="togglePassword('reg-password')"></i>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>تأكيد كلمة المرور</label>
+            <div class="input-with-icon">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="reg-confirm-password" placeholder="••••••••" required>
+              <i class="fas fa-eye toggle-password" onclick="togglePassword('reg-confirm-password')"></i>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>أنت طالب أم موظف؟</label>
+            <div class="radio-group">
+              <label><input type="radio" name="status" value="student" required> طالب</label>
+              <label><input type="radio" name="status" value="employee"> موظف</label>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">تسجيل حساب جديد</button>
+        </form>
+
+        <div class="or-divider"><span>أو</span></div>
+        <button class="google-btn"><i class="fab fa-google"></i> التسجيل بجوجل</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // تبديل بين التبويبين
+    const tabs = document.querySelectorAll('.tab-btn');
+    const forms = document.querySelectorAll('.auth-form');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        forms.forEach(form => form.classList.remove('active'));
+        document.getElementById(tab.getAttribute('data-tab')).classList.add('active');
+      });
+    });
+
+    // إظهار / إخفاء كلمة السر
+    function togglePassword(id) {
+      const input = document.getElementById(id);
+      const icon = input.parentElement.querySelector('.toggle-password');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.replace('fa-eye', 'fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.replace('fa-eye-slash', 'fa-eye');
+      }
+    }
+  </script>
+</body>
+</html>
