@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تسجيل الدخول | بصمة دعم</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">بصمة دعم</a>
+    </div>
+  </nav>
+
+  <div class="auth-page">
+    <div class="auth-container">
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="tab-btn active" data-tab="login">تسجيل الدخول</button>
+        <button class="tab-btn" data-tab="register">تسجيل جديد</button>
+      </div>
+
+      <!-- Login -->
+      <div id="login" class="auth-form active">
+        <h2>تسجيل الدخول</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label>الجيميل</label>
+            <div class="input-with-icon">
+              <i class="fab fa-google"></i>
+              <input type="email" id="login-email" placeholder="example@gmail.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>كلمة المرور</label>
+            <div class="input-with-icon">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="login-password" placeholder="••••••••" required>
+              <i class="fas fa-eye toggle-password" onclick="togglePassword('login-password')"></i>
+            </div>
+          </div>
+          <button type="submit" class="submit-btn">دخول</button>
+        </form>
+      </div>
+
+      <!-- Register -->
+      <div id="register" class="auth-form">
+        <h2>تسجيل حساب جديد</h2>
+        <form id="registerForm">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>الاسم بالعربي</label>
+              <input type="text" id="name-ar" placeholder="الاسم بالعربي" required>
+            </div>
+            <div class="form-group">
+              <label>الاسم بالإنجليزي</label>
+              <input type="text" id="name-en" placeholder="Full Name" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>الجيميل (سيُستخدم لتسجيل الدخول)</label>
+            <div class="input-with-icon">
+              <i class="fab fa-google"></i>
+              <input type="email" id="reg-email" placeholder="example@gmail.com" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>تاريخ الميلاد</label>
+              <input type="date" id="birth-date" required>
+            </div>
+            <div class="form-group">
+              <label>الرقم القومي</label>
+              <input type="text" id="national-id" maxlength="14" placeholder="14 رقم" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>المحافظة</label>
+              <select id="governorate" required>
+                <option value="">اختر المحافظة</option>
+                <option value="القاهرة">القاهرة</option>
+                <option value="الجيزة">الجيزة</option>
+                <option value="الإسكندرية">الإسكندرية</option>
+                <option value="الدقهلية">الدقهلية</option>
+                <option value="الشرقية">الشرقية</option>
+                <!-- أضف باقي المحافظات حسب الحاجة -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label>المؤهل</label>
+              <select id="qualification" required>
+                <option value="">اختر المؤهل</option>
+                <option value="ثانوية عامة">ثانوية عامة</option>
+                <option value="دبلوم">دبلوم</option>
+                <option value="بكالوريوس">بكالوريوس</option>
+                <option value="ماجستير">ماجستير</option>
+                <option value="دكتوراه">دكتوراه</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>رقم الواتساب</label>
+            <input type="tel" id="whatsapp" placeholder="01xxxxxxxxx" required>
+          </div>
+
+          <div class="form-group">
+            <label>نبذة مختصرة عن سيرتك الذاتية</label>
+            <textarea id="bio" rows="3" placeholder="اكتب نبذة مختصرة عن نفسك..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>أنت طالب أم موظف؟</label>
+            <div class="radio-group">
+              <label><input type="radio" name="status" value="student" required> طالب</label>
+              <label><input type="radio" name="status" value="employee"> موظف</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>كلمة المرور</label>
+            <div class="input-with-icon">
+              <input type="password" id="reg-password" placeholder="••••••••" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>تأكيد كلمة المرور</label>
+            <div class="input-with-icon">
+              <input type="password" id="reg-confirm-password" placeholder="••••••••" required>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">تسجيل حساب جديد</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // تبديل التبويبين
+    document.querySelectorAll('.tab-btn').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    function togglePassword(id) {
+      const input = document.getElementById(id);
+      const icon = input.parentElement.querySelector('.toggle-password');
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.replace('fa-eye', 'fa-eye-slash');
+      } else {
+        input.type = "password";
+        icon.classList.replace('fa-eye-slash', 'fa-eye');
+      }
+    }
+
+    // JavaScript validation & save
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (document.getElementById('reg-password').value !== document.getElementById('reg-confirm-password').value) {
+        alert('كلمة المرور وتأكيدها غير متطابقين');
+        return;
+      }
+      alert('✅ تم التسجيل بنجاح!\nيمكنك الآن تسجيل الدخول بالجيميل الذي سجلت به.');
+      document.querySelector('[data-tab="login"]').click();
+    });
+  </script>
+</body>
+</html>
